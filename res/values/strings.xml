@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, EbGPSActivity!</string>
+    <string name="app_name">EbGPS</string>
+	<string name="apikey">c2b0f58a6f09cafd1503c06ef08ac7aeb7ddb91a20107dd917250151343bbc1cda24b54702e28283</string>
+
+</resources>
