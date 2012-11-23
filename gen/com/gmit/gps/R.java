@@ -27,38 +27,26 @@ public final class R {
         public static final int icon2=0x7f02000d;
         public static final int input_over=0x7f02000e;
         public static final int login_back=0x7f02000f;
-        public static final int login_head=0x7f020010;
-        public static final int login_input=0x7f020011;
-        public static final int more_select=0x7f020012;
-        public static final int option=0x7f020013;
-        public static final int option_normal=0x7f020014;
-        public static final int option_selected=0x7f020015;
-        public static final int pop=0x7f020016;
-        public static final int qq_btn_check=0x7f020017;
-        public static final int qq_edit_login=0x7f020018;
+        public static final int login_input=0x7f020010;
+        public static final int logo=0x7f020011;
+        public static final int mark=0x7f020012;
+        public static final int option_normal=0x7f020013;
+        public static final int option_selected=0x7f020014;
+        public static final int pop=0x7f020015;
     }
     public static final class id {
-        public static final int ImageButton02=0x7f05000a;
-        public static final int LinearLayout01=0x7f050001;
-        public static final int RelativeLayout01=0x7f05000e;
-        public static final int RelativeLayout02=0x7f050002;
-        public static final int TextView01=0x7f050005;
-        public static final int TextView02=0x7f050007;
-        public static final int TextView03=0x7f050009;
-        public static final int btnLockOrNot=0x7f050011;
-        public static final int faceImg=0x7f050003;
-        public static final int loginRoot=0x7f050000;
-        public static final int login_btn_login=0x7f05000c;
-        public static final int login_cb_autologin=0x7f05000d;
-        public static final int login_cb_savepwd=0x7f05000b;
-        public static final int login_edit_account=0x7f050004;
-        public static final int login_edit_pwd=0x7f050006;
-        public static final int login_option=0x7f05000f;
-        public static final int map=0x7f050010;
-        public static final int myspinner=0x7f050008;
-        public static final int poptext=0x7f050012;
-        public static final int user_face_drawable=0x7f050014;
-        public static final int user_faceback_drawable=0x7f050013;
+        public static final int btnCenter=0x7f05000a;
+        public static final int btnLockOrNot=0x7f050009;
+        public static final int btnLogin=0x7f050005;
+        public static final int imageView1=0x7f050001;
+        public static final int layAni=0x7f050002;
+        public static final int linearLayout1=0x7f050000;
+        public static final int linearLayout2=0x7f050006;
+        public static final int map=0x7f050008;
+        public static final int poptext=0x7f05000b;
+        public static final int textView1=0x7f050007;
+        public static final int txtDeviceid=0x7f050003;
+        public static final int txtPassword=0x7f050004;
     }
     public static final class layout {
         public static final int login=0x7f030000;
@@ -68,6 +56,8 @@ public final class R {
     public static final class string {
         public static final int apikey=0x7f040002;
         public static final int app_name=0x7f040001;
+        public static final int copyright=0x7f040003;
         public static final int hello=0x7f040000;
+        public static final int server=0x7f040004;
     }
 }

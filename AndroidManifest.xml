@@ -11,14 +11,14 @@
         android:label="@string/app_name"
         android:theme="@android:style/Theme.Light.NoTitleBar" >
         <activity
-            android:name=".EbGPSActivity"
-            android:launchMode="singleTask">
+            android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".EbGPSActivity" android:launchMode="singleTask"></activity>
     </application>
 
 	<uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />

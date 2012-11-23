@@ -1,178 +1,73 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:id="@+id/loginRoot"
 	android:layout_width="fill_parent"
 	android:layout_height="fill_parent"
-	android:orientation="vertical" >
+	android:background="@drawable/bg"
+	android:orientation="vertical"
+	android:padding="2dip" >
 	<LinearLayout
-		android:id="@+id/LinearLayout01"
+		android:id="@+id/linearLayout1"
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content"
-		android:layout_weight="1.0"
-		android:background="@drawable/bg"
+		android:layout_weight="1"
+		android:gravity="center"
 		android:orientation="vertical" >
-		<RelativeLayout
-			android:id="@+id/RelativeLayout02"
-			android:layout_width="fill_parent"
-			android:layout_height="wrap_content"
-			android:layout_marginLeft="10dip"
-			android:layout_marginRight="10dip"
-			android:layout_marginTop="150dip"
-			android:background="@drawable/login_back"
-			android:paddingBottom="20dip"
-			android:paddingTop="15dip" >
-			<ImageView
-				android:id="@+id/faceImg"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:background="@drawable/login_head" />
-			<EditText
-				android:id="@+id/login_edit_account"
-				android:layout_width="fill_parent"
-				android:layout_height="40dip"
-				android:layout_alignParentTop="true"
-				android:layout_marginBottom="5.0px"
-				android:layout_marginLeft="5.0dip"
-				android:layout_marginRight="5.0dip"
-				android:layout_marginTop="5.0dip"
-				android:layout_toRightOf="@+id/faceImg"
-				android:background="@drawable/qq_edit_login"
-				android:hint="输入帐号"
-				android:paddingLeft="45.0sp"
-				android:saveEnabled="true"
-				android:singleLine="true" />
-			<TextView
-				android:id="@+id/TextView01"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_alignBottom="@+id/login_edit_account"
-				android:layout_alignLeft="@+id/login_edit_account"
-				android:layout_alignTop="@+id/login_edit_account"
-				android:layout_marginRight="15.0sp"
-				android:gravity="center_vertical"
-				android:paddingLeft="7.0sp"
-				android:text="帐号"
-				android:textColor="#ff3f3f3f"
-				android:textSize="16.0dip" />
-			<EditText
-				android:id="@+id/login_edit_pwd"
-				android:layout_width="wrap_content"
-				android:layout_height="40dip"
-				android:layout_alignLeft="@+id/login_edit_account"
-				android:layout_alignRight="@+id/login_edit_account"
-				android:layout_below="@+id/login_edit_account"
-				android:layout_marginBottom="5.0px"
-				android:layout_marginRight="1.0dip"
-				android:background="@drawable/qq_edit_login"
-				android:inputType="textPassword"
-				android:paddingLeft="45.0sp"
-				android:saveEnabled="true"
-				android:singleLine="true" />
-			<TextView
-				android:id="@+id/TextView02"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_alignBottom="@+id/login_edit_pwd"
-				android:layout_alignRight="@+id/TextView01"
-				android:layout_alignTop="@+id/login_edit_pwd"
-				android:gravity="center_vertical"
-				android:paddingLeft="7.0sp"
-				android:text="密码"
-				android:textColor="#ff3f3f3f"
-				android:textSize="16.0dip" />
-			<Spinner
-				android:id="@+id/myspinner"
-				android:layout_width="wrap_content"
-				android:layout_height="40dip"
-				android:layout_alignLeft="@+id/login_edit_pwd"
-				android:layout_alignRight="@+id/login_edit_pwd"
-				android:layout_below="@+id/login_edit_pwd"
-				android:background="@drawable/qq_edit_login"
-				android:paddingLeft="45.0sp" />
-			<TextView
-				android:id="@+id/TextView03"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_alignBottom="@+id/myspinner"
-				android:layout_alignRight="@+id/TextView02"
-				android:layout_alignTop="@+id/myspinner"
-				android:gravity="center_vertical"
-				android:paddingLeft="7.0sp"
-				android:text="平台"
-				android:textColor="#ff3f3f3f"
-				android:textSize="16.0dip" />
-			<ImageButton
-				android:id="@+id/ImageButton02"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_alignBottom="@+id/myspinner"
-				android:layout_alignRight="@+id/myspinner"
-				android:layout_alignTop="@+id/myspinner"
-				android:layout_marginRight="0.0dip"
-				android:background="@drawable/more_select" />
-			<CheckBox
-				android:id="@+id/login_cb_savepwd"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_alignBaseline="@+id/login_btn_login"
-				android:button="@drawable/qq_btn_check"
-				android:paddingLeft="25.0px"
-				android:text="记住密码"
-				android:textColor="#ff222222"
-				android:textSize="16.0sp" />
-			<CheckBox
-				android:id="@+id/login_cb_autologin"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_alignBaseline="@+id/login_btn_login"
-				android:layout_marginLeft="5dip"
-				android:layout_toRightOf="@id/login_cb_savepwd"
-				android:button="@drawable/qq_btn_check"
-				android:paddingLeft="25.0px"
-				android:text="自动登录"
-				android:textColor="#ff222222"
-				android:textSize="16.0sp" />
-			<Button
-				android:id="@+id/login_btn_login"
-				android:layout_width="130.0px"
-				android:layout_height="40dip"
-				android:layout_alignParentRight="true"
-				android:layout_below="@+id/TextView03"
-				android:layout_marginRight="5.0dip"
-				android:layout_marginTop="5dip"
-				android:text="登录" />
-		</RelativeLayout>
 
-		<TextView
-		    android:layout_width="fill_parent"
-		    android:layout_height="wrap_content"
-		    android:layout_marginLeft="10dip"
-		    android:text="Android LBS"
-		    android:textColor="#7fffffff" />
-
-	</LinearLayout>
-	<RelativeLayout
-		android:id="@+id/RelativeLayout01"
-		android:layout_width="fill_parent"
-		android:layout_height="44.0dip"
-		android:background="@drawable/bottom" >
-		<ImageButton
-			android:id="@+id/login_option"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_centerVertical="true"
-			android:layout_marginLeft="13.0dip"
-			android:layout_marginTop="2.0dip"
-			android:background="@drawable/option"
-			android:clickable="true" />
-
-		<TextView
+		<ImageView
+		    android:id="@+id/imageView1"
 		    android:layout_width="wrap_content"
 		    android:layout_height="wrap_content"
-		    android:layout_centerVertical="true"
-		    android:layout_toRightOf="@id/login_option"
-		    android:text="武汉凌动科技有限公司"
-		    android:textColor="#7fffffff" />
+		    android:src="@drawable/logo" />
+
+		<LinearLayout
+		    android:id="@+id/layAni"
+		    android:layout_width="match_parent"
+		    android:layout_height="1dp"
+		    android:orientation="vertical"
+		    android:paddingTop="30dp" >
 
-	</RelativeLayout>
+		    <EditText
+		        android:id="@+id/txtDeviceid"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_marginBottom="5dp"
+		        android:layout_marginLeft="10dp"
+		        android:layout_marginRight="10dp"
+		        android:ems="10" android:hint="设备号" android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+		    <EditText
+		        android:id="@+id/txtPassword"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_marginBottom="5dp"
+		        android:layout_marginLeft="10dp"
+		        android:layout_marginRight="10dp"
+		        android:ems="10"
+		        android:inputType="textPassword" android:hint="密码" android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+		    <Button
+		        android:id="@+id/btnLogin"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_marginLeft="10dp"
+		        android:layout_marginRight="10dp"
+		        android:text="登录" android:textAppearance="?android:attr/textAppearanceMedium"/>
+		</LinearLayout>
+
+	</LinearLayout>
+	<LinearLayout
+		android:id="@+id/linearLayout2"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:gravity="center_horizontal"
+		android:orientation="vertical"
+		android:paddingBottom="20dip" >
+		<TextView
+			android:id="@+id/textView1"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/copyright"
+			android:textColor="#fff">
+		</TextView>
+	</LinearLayout>
 </LinearLayout>

@@ -6,13 +6,13 @@
      <RelativeLayout
          android:layout_width="fill_parent"
          android:layout_height="fill_parent">
-		<com.mapabc.mapapi.MapView
+		<com.mapabc.mapapi.map.MapView
 		    android:id="@+id/map"
 		    android:layout_width="fill_parent"
 		    android:layout_height="fill_parent"
 		    android:apiKey="@string/apikey"
 		    android:clickable="true" >
-		</com.mapabc.mapapi.MapView>
+		</com.mapabc.mapapi.map.MapView>
 
 		<Button
 		    android:id="@+id/btnLockOrNot"
@@ -23,7 +23,17 @@
 		    android:layout_alignParentRight="true"
 		    android:layout_marginLeft="20dp"
 		    android:layout_marginRight="20dp"
-		    android:layout_marginBottom="100dp"
-		    android:text="锁定" />
+		    android:layout_marginBottom="70dp"
+		    android:text="锁定" android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+		<ImageButton
+		    android:id="@+id/btnCenter"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_alignParentTop="true"
+		    android:layout_alignRight="@+id/btnLockOrNot"
+		    android:layout_marginTop="20dp"
+		    android:src="@android:drawable/ic_menu_mylocation" />
+
      </RelativeLayout>
 </LinearLayout>
