@@ -8,32 +8,28 @@
         android:id="@+id/tableLayout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#002E3E"
+        android:background="#111"
         android:stretchColumns="1" >
 
         <TableRow android:id="@+id/tableRow1" android:layout_width="wrap_content" android:layout_height="wrap_content">
-
+
             <ImageView
-                android:id="@+id/imgLogo"
+                android:id="@+id/imgSignal"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_gravity="center_vertical"
-                android:layout_marginBottom="4dp"
-                android:layout_marginLeft="4dp"
-                android:layout_marginRight="4dp"
-                android:layout_marginTop="4dp"
-                android:src="@drawable/icon" >
+                android:src="@drawable/signalon" android:layout_margin="4dp" android:padding="4dp">
 
 </ImageView>
 
             <TextView
                 android:id="@+id/txtName"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="26dp"
                 android:layout_gravity="center_vertical"
                 android:gravity="center"
                 android:textColor="#FFFFFF"
-                android:textSize="18sp" >
+                android:textSize="18sp" android:background="@drawable/topcenter">
 </TextView>
 
             <ImageView
@@ -41,55 +37,84 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_gravity="center_vertical"
-                android:layout_marginBottom="4dp"
-                android:layout_marginLeft="4dp"
-                android:layout_marginRight="4dp"
-                android:layout_marginTop="4dp"
-                android:src="@drawable/option" >
+                android:src="@drawable/option" android:layout_margin="4dp">
 
 </ImageView>
         </TableRow>
     </TableLayout>
     <View
         android:layout_width="fill_parent"
-        android:layout_height="4dp"
-        android:background="#33B5E5" >
+        android:layout_height="1dp"
+        android:background="#181818" >
 </View>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical" android:gravity="center" android:paddingLeft="5dp" android:paddingRight="5dp">
-
-        <Button
-            android:id="@+id/btnMap"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="查看地图" android:textAppearance="?android:attr/textAppearanceMedium"/>
-
-        <Button
-            android:id="@+id/btnLock"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="锁定" android:textAppearance="?android:attr/textAppearanceMedium"/>
-
-        <Button
-            android:id="@+id/btnUnlock"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="解锁" android:textAppearance="?android:attr/textAppearanceMedium"/>
-
-        <Button
-            android:id="@+id/btnMute"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="静音" android:textAppearance="?android:attr/textAppearanceMedium"/>
-
-        <Button
-            android:id="@+id/btnExit"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="退出" android:textAppearance="?android:attr/textAppearanceMedium"/>
+        android:orientation="vertical" android:gravity="center" android:paddingLeft="5dp" android:paddingRight="5dp" android:background="@drawable/repeatbg">
 
+        <LinearLayout
+            android:layout_width="264dp"
+            android:layout_height="309dp"
+            android:orientation="vertical" android:background="@drawable/centerbg">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:layout_marginTop="35dp">
+
+                <ImageView
+                    android:id="@+id/btnLock"
+                    android:layout_width="42dp"
+                    android:layout_height="42dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/lock_selected" />
+
+                <ImageView
+                    android:id="@+id/btnUnlock"
+                    android:layout_width="42dp"
+                    android:layout_height="42dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/unlock_normal" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/btnMap"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/buttonmap" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:layout_marginTop="5dp">
+
+                <ImageView
+                    android:id="@+id/btnMute"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_weight="1"
+                    android:paddingRight="10dp"
+                    android:src="@drawable/soundopen" />
+
+                <ImageView
+                    android:id="@+id/btnExit"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_weight="1"
+                    android:paddingLeft="10dp"
+                    android:src="@drawable/buttonexit"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:orientation="vertical" android:background="#fff">
     </LinearLayout>
     
 </LinearLayout>

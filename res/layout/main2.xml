@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+<TableLayout
+        android:id="@+id/tableLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#002E3E"
+        android:stretchColumns="1" >
+
+        <TableRow android:id="@+id/tableRow1" android:layout_width="wrap_content" android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imgLogo"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginBottom="4dp"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:layout_marginTop="4dp"
+                android:src="@drawable/icon" >
+
+</ImageView>
+
+            <TextView
+                android:id="@+id/txtName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="center"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp" >
+</TextView>
+
+            <ImageView
+                android:id="@+id/btnSettings"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginBottom="4dp"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:layout_marginTop="4dp"
+                android:src="@drawable/option" >
+
+</ImageView>
+        </TableRow>
+    </TableLayout>
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="4dp"
+        android:background="#33B5E5" >
+</View>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" android:gravity="center" android:paddingLeft="5dp" android:paddingRight="5dp">
+
+        <Button
+            android:id="@+id/btnMap"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="查看地图" android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+        <Button
+            android:id="@+id/btnLock"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="锁定" android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+        <Button
+            android:id="@+id/btnUnlock"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="解锁" android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+        <Button
+            android:id="@+id/btnMute"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="静音" android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+        <Button
+            android:id="@+id/btnExit"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="退出" android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+    </LinearLayout>
+    
+</LinearLayout>

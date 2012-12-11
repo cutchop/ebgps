@@ -8,7 +8,7 @@
         android:id="@+id/tableLayout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#002E3E"
+        android:background="#111"
         android:stretchColumns="1" >
 
         <TableRow android:id="@+id/tableRow1" android:layout_width="wrap_content" android:layout_height="wrap_content">
@@ -23,18 +23,18 @@
                 android:layout_marginRight="4dp"
                 android:layout_marginTop="4dp"
                 android:padding="4dp"
-                android:src="@drawable/back" >
+                android:src="@drawable/back">
 
 </ImageView>
 
             <TextView
                 android:id="@+id/txtName"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="26dp"
                 android:layout_gravity="center_vertical"
                 android:gravity="center"
                 android:textColor="#FFFFFF"
-                android:textSize="18sp" >
+                android:textSize="18sp" android:background="@drawable/topcenter">
 </TextView>
             <ImageView
                 android:id="@+id/btnRefresh"
@@ -53,8 +53,8 @@
 
     <View
         android:layout_width="fill_parent"
-        android:layout_height="4dp"
-        android:background="#33B5E5" >
+        android:layout_height="1dp"
+        android:background="#181818" >
 </View>
 
      <RelativeLayout
@@ -69,27 +69,16 @@
              android:clickable="true" >
          </com.mapabc.mapapi.map.MapView>
 
-         <Button
-             android:id="@+id/btnLockOrNot"
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:layout_alignParentBottom="true"
-             android:layout_alignParentLeft="true"
-             android:layout_alignParentRight="true"
-             android:layout_marginBottom="70dp"
-             android:layout_marginLeft="20dp"
-             android:layout_marginRight="20dp"
-             android:text="锁定"
-             android:textAppearance="?android:attr/textAppearanceMedium" />
-
          <ImageButton
              android:id="@+id/btnCenter"
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"
+             android:layout_alignParentRight="true"
              android:layout_alignParentTop="true"
-             android:layout_alignRight="@+id/btnLockOrNot"
-             android:layout_marginTop="20dp"
+             android:layout_marginRight="16dp"
+             android:layout_marginTop="16dp"
              android:src="@android:drawable/ic_menu_mylocation" />
+
      </RelativeLayout>
 
 </LinearLayout>

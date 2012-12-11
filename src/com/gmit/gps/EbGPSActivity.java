@@ -3,9 +3,8 @@ package com.gmit.gps;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
@@ -21,34 +20,27 @@ import org.apache.http.util.EntityUtils;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
-import android.graphics.Point;
+import android.media.AudioManager;
+import android.media.SoundPool;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
-import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.mapabc.mapapi.core.*;
-import com.mapabc.mapapi.map.*;
-
 public class EbGPSActivity extends Activity {
 
-	Button btnMap,btnLock,btnUnlock,btnMute,btnExit;
+	private SoundPool sp;
+	private HashMap<Integer, Integer> spMap;
+	ImageView btnMap, btnLock, btnUnlock, btnMute, btnExit;
 	TextView txtName;
 	SharedPreferences settings;
 	HttpPost httpRequest;
@@ -61,6 +53,10 @@ public class EbGPSActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
 		Log.i("ebgps", "EbGpsActivity onCreate");
+		sp = new SoundPool(5, AudioManager.STREAM_MUSIC, 0);
+		spMap = new HashMap<Integer, Integer>();
+		spMap.put(1, sp.load(this, R.raw.lock, 1));
+		spMap.put(2, sp.load(this, R.raw.unlock, 1));
 		if (!isServiceRunning()) {
 			Intent intent = new Intent(EbGPSActivity.this, EbService.class);
 			startService(intent);
@@ -70,13 +66,24 @@ public class EbGPSActivity extends Activity {
 		Global.Deviceid = settings.getString("deviceid", "");
 		Global.Password = settings.getString("password", "");
 		Global.Locked = settings.getBoolean("locked", false);
-		btnMap = (Button) findViewById(R.id.btnMap);
-		btnLock = (Button) findViewById(R.id.btnLock);
-		btnUnlock = (Button) findViewById(R.id.btnUnlock);
-		btnMute = (Button) findViewById(R.id.btnMute);
-		btnExit = (Button) findViewById(R.id.btnExit);
-		txtName = (TextView)findViewById(R.id.txtName);
+		Global.PlaySound = settings.getBoolean("playsound", true);
+		btnMap = (ImageView) findViewById(R.id.btnMap);
+		btnLock = (ImageView) findViewById(R.id.btnLock);
+		btnUnlock = (ImageView) findViewById(R.id.btnUnlock);
+		btnMute = (ImageView) findViewById(R.id.btnMute);
+		btnExit = (ImageView) findViewById(R.id.btnExit);
+		txtName = (TextView) findViewById(R.id.txtName);
 		txtName.setText(Global.Deviceid);
+		if (!Global.PlaySound) {
+			btnMute.setImageResource(R.drawable.soundclose);
+		}
+		if (Global.Locked) {
+			btnLock.setImageResource(R.drawable.lock_selected);
+			btnUnlock.setImageResource(R.drawable.unlock_normal);
+		} else {
+			btnLock.setImageResource(R.drawable.lock_normal);
+			btnUnlock.setImageResource(R.drawable.unlock_selected);
+		}
 		btnMap.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				Intent intent = new Intent();
@@ -92,6 +99,16 @@ public class EbGPSActivity extends Activity {
 		btnUnlock.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				lock(false);
+			}
+		});
+		btnMute.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				Global.PlaySound = !Global.PlaySound;
+				if (Global.PlaySound) {
+					btnMute.setImageResource(R.drawable.soundopen);
+				} else {
+					btnMute.setImageResource(R.drawable.soundclose);
+				}
 			}
 		});
 		btnExit.setOnClickListener(new OnClickListener() {
@@ -165,8 +182,18 @@ public class EbGPSActivity extends Activity {
 				if (result == 1) {
 					Global.Locked = bl;
 					if (Global.Locked) {
+						if (Global.PlaySound) {
+							playSound(1, 0);
+						}
+						btnLock.setImageResource(R.drawable.lock_selected);
+						btnUnlock.setImageResource(R.drawable.unlock_normal);
 						Toast.makeText(EbGPSActivity.this, "已锁定,车辆被移动时您将收到警示信息", Toast.LENGTH_LONG).show();
 					} else {
+						if (Global.PlaySound) {
+							playSound(2, 0);
+						}
+						btnLock.setImageResource(R.drawable.lock_normal);
+						btnUnlock.setImageResource(R.drawable.unlock_selected);
 						Toast.makeText(EbGPSActivity.this, "已解锁,现在移动车辆时您将不会收到通知", Toast.LENGTH_LONG).show();
 					}
 				} else if (result == 2) {
@@ -192,6 +219,20 @@ public class EbGPSActivity extends Activity {
 			}
 		}
 		return isRunning;
+	}
+
+	public void playSound(int sound, int number) { // 播放声音,参数sound是播放音效的id，参数number是播放音效的次数
+		AudioManager am = (AudioManager) this.getSystemService(Context.AUDIO_SERVICE);// 实例化AudioManager对象
+		float audioMaxVolumn = am.getStreamMaxVolume(AudioManager.STREAM_MUSIC); // 返回当前AudioManager对象的最大音量值
+		float audioCurrentVolumn = am.getStreamVolume(AudioManager.STREAM_MUSIC);// 返回当前AudioManager对象的音量值
+		float volumnRatio = audioCurrentVolumn / audioMaxVolumn; // 左右声道音量；
+		sp.play(spMap.get(sound), // 播放的音乐id
+				volumnRatio, // 左声道音量
+				volumnRatio, // 右声道音量
+				1, // 优先级，0为最低
+				number, // 循环次数，0不循环，-1永远循环
+				1 // 回放速度 ，该值在0.5-2.0之间，1为正常速度
+		);
 	}
 
 	@Override
